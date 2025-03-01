@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -19,6 +20,11 @@ function Login() {
   const handleSubmit = (event) =>{
     event.preventDefault();
 
+    if (!values.userName || !values.password) {
+      toast.error('Please fill in all fields');
+      return;
+    }
+
     if (values.userName === "Admin" && values.password === "12345678") {
       navigate('/admindashboard'); 
       return;
@@ -37,7 +43,7 @@ function Login() {
         navigate('/home');
       }
       else{
-        alert('No Record Found');
+        toast.error('No Record Found');
       }
     })
     .catch(err => console.log(err));
@@ -45,6 +51,7 @@ function Login() {
 
   return (
     <div className=' flex flex-col items-center justify-center h-screen'>
+      <Toaster/>
       <h1 className='text-4xl font-bold'>Login</h1>
       <form onSubmit={handleSubmit} className='mt-5'>
         <div className='flex flex-col justify-center'>

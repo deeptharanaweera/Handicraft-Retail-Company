@@ -1,6 +1,7 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import ProductCard from '../component/ProductCard';
 
@@ -96,7 +97,7 @@ function Home() {
                     await axios.post('http://localhost:5000/AddInvoiceProduct', productData);
                 }
 
-                alert("Invoice and products added successfully!");
+                toast.success("Invoice and products added successfully!");
                 setInvoiceItems([]);
                 setIsOpen(true);
             } else {
@@ -139,6 +140,7 @@ function Home() {
 
     return (
         <div className="mx-10 my-10 mb-10">
+            <Toaster/>
             <div className='flex justify-between items-center mb-8'>
                 <h1 className='text-6xl font-semibold text-orange-500'>Welcome Our Online Shop</h1>
                 <div className='flex gap-2'>
@@ -204,7 +206,7 @@ function Home() {
                                 <table className="w-full border">
                                     <thead>
                                         <tr className="bg-gray-300">
-                                            <th className="border px-4 py-2">Invoice ID</th>
+                                            <th className="border px-4 py-2">Invoice Date</th>
                                             <th className="border px-4 py-2">Total Price</th>
                                             <th className="border px-4 py-2">Reward Points</th>
                                         </tr>

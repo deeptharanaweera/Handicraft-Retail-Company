@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { toast, Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-
 function Register() {
   const [values, setValues] = useState({
     salutation: '',
@@ -29,6 +29,7 @@ function Register() {
     // }
     axios.post('http://localhost:5000/Register', values)
     .then(res => {
+      toast.success('Registration Successfully');
       console.log(res);
       navigate('/');
     })
@@ -39,6 +40,7 @@ function Register() {
 
   return (
     <div className=' flex flex-col items-center justify-center h-screen'>
+      <Toaster/>
       <h1 className='text-4xl font-bold'>Register</h1>
       <form onSubmit={handleSubmit} className='mt-5 w-4/12'>
         <div className='flex flex-col justify-center'>

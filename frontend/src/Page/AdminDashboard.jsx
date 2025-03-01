@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import AdminProductCard from '../component/AdminProductCard';
 
@@ -25,8 +26,10 @@ function AdminDashboard() {
         axios.post('http://localhost:5000/AddProduct', formData)
             .then(res => {
                 console.log(res);
+                toast.success('Product added successfully')
                 setIsOpen(false);
                 fetchProducts();
+
             })
             .catch(err => console.log(err));
     }
@@ -102,6 +105,7 @@ function AdminDashboard() {
 
     return (
         <div className='m-2 relative mb-10'>
+            <Toaster/>
             <button className='absolute top-0 right-0 bg-red-600 text-white px-2 py-3 text-xl rounded-md' onClick={handleLogout}>Logout</button>
             <h1 className='text-6xl font-semibold text-orange-500 text-center'>Admin Dashboard</h1>
             <div className='flex items-center justify-center mt-5'>
