@@ -138,7 +138,7 @@ function Home() {
 
 
     return (
-        <div className="mx-10 my-10">
+        <div className="mx-10 my-10 mb-10">
             <div className='flex justify-between items-center mb-8'>
                 <h1 className='text-6xl font-semibold text-orange-500'>Welcome Our Online Shop</h1>
                 <div className='flex gap-2'>

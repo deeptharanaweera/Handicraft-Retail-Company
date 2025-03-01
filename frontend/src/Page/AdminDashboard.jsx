@@ -101,7 +101,7 @@ function AdminDashboard() {
     console.log(customers);
 
     return (
-        <div className='m-2 relative'>
+        <div className='m-2 relative mb-10'>
             <button className='absolute top-0 right-0 bg-red-600 text-white px-2 py-3 text-xl rounded-md' onClick={handleLogout}>Logout</button>
             <h1 className='text-6xl font-semibold text-orange-500 text-center'>Admin Dashboard</h1>
             <div className='flex items-center justify-center mt-5'>
@@ -167,7 +167,7 @@ function AdminDashboard() {
 
                         <div className="flex justify-end space-x-2">
                             <button
-                                className="bg-red-500 px-4 py-2 text-white rounded-lg"
+                                className="bg-red-500 px-4 py-2 text-white rounded-lg "
                                 onClick={() => setIsOpen(false)}
                             >
                                 Cancel
